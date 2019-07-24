@@ -5,6 +5,47 @@
 class C_One
 {
 
+	/**
+	 * 实现一个十进制整数转二进制的函数
+	 * @param  [type] $number [description]
+	 * @return [type]         [description]
+	 */
+	public function decToBin($number)
+	{
+		$bin = '';
+		while ($number > 0) {
+			$num = $number & 1;
+			$number >>= 1;
+			$bin = $num.$bin;
+		}
+		return $bin+0;
+	}
+
+	/**
+	 * 整数二进制展开中1的个数
+	 * 
+	 * &		按位与	只有对应的两个二进制位均为1时候，结果位才会是1，否则为0
+	 * |		按位或	只要对应的两个二进制位有一个为1时，结果位就位1，否则为0
+	 * ^		按位异或	对应二进制位相异(不相同)时，结果位1，否则为0 
+	 * ~		按位取反	把每个二进制位取反，它是单目运算符，只操作一个数
+	 * << >>	位运算左移或右移n位,实际上是十进制 *2 或 /2
+	 *
+	 * $n & 1	可用来判断二进制最后一位是否为1
+	 * 
+	 * 
+	 * @param  int $n 整数
+	 * @return int $total   1的个数
+	 */
+	public function countOnes($n)
+	{
+		$total = 0;//初始化计数器
+		while ($n > 0) {
+			$total += $n & 1;
+			$n >>= 1;
+		}
+		return $total;
+	}
+
     /**
      * 冒泡排序(起泡排序)
      * 异或: 不同即为真,相同即为假
@@ -19,8 +60,8 @@ class C_One
      * $i = 3    7 > 2,交换位置    [1, 5, 2, 7]
      * 
      * @param  array $nums n个整数
-     * @param  int $n    $nums长度
-     * @return array       返回排序后的数组
+     * @param  int 	 $n    $nums长度
+     * @return array $nums 返回排序后的数组
      */
     public function bubbleSort($nums, $n)
     {
@@ -59,6 +100,7 @@ class C_One
 
 $c_one = new C_One;
 // $sum   = $c_one->sumI([1, 2, 3], 3);
-
-$sort_nums = $c_one->bubbleSort([5, 1, 7, 2], 4);
-print_r($sort_nums);
+// $sort_nums = $c_one->bubbleSort([5, 1, 7, 2], 4);
+// $total_one = $c_one->countOnes(15);
+$bin = $c_one->decToBin(0);
+var_dump($bin);
