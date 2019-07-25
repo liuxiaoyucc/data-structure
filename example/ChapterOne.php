@@ -4,11 +4,24 @@
  */
 class C_One
 {
+	/**
+	 * 对于非负整数n,计算2的n次幂
+	 * @param  int $n
+	 * @return int
+	 */
+	public function power2BF_I($n)
+	{
+		$power = 1;
+		while ($n-- > 0) {
+			$power <<= 1; //左移*2
+		}
+		return $power;
+	}
 
 	/**
 	 * 实现一个十进制整数转二进制的函数
-	 * @param  [type] $number [description]
-	 * @return [type]         [description]
+	 * @param  int $number 十进制整数
+	 * @return int $bin+0  字符串转为int
 	 */
 	public function decToBin($number)
 	{
@@ -102,5 +115,6 @@ $c_one = new C_One;
 // $sum   = $c_one->sumI([1, 2, 3], 3);
 // $sort_nums = $c_one->bubbleSort([5, 1, 7, 2], 4);
 // $total_one = $c_one->countOnes(15);
-$bin = $c_one->decToBin(0);
-var_dump($bin);
+// $bin = $c_one->decToBin(0);
+$power = $c_one->power2BF_I(0);
+var_dump($power);
