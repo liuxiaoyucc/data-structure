@@ -16,9 +16,28 @@
  * │ Ctrl│    │Alt │         Space         │ Alt│    │    │Ctrl│ │ ← │ ↓ │ → │ │   0   │ . │←─┘│
  * └─────┴────┴────┴───────────────────────┴────┴────┴────┴────┘ └───┴───┴───┘ └───────┴───┴───┘
  */
-
 class C_One
 {
+
+
+	/**
+	 * 斐波那契数 [0, 1, 1, 2, 3, 5, 8, 13, 21, ...]
+	 * 返回斐波那契数的第n项值
+	 * 动态规划
+	 * @param  int $n
+	 * @return int 
+	 */
+	public function fib($n)
+	{
+		$p = 1;
+		$q = 0;
+		while (0 < $n--) {
+			$p = $p + $q;
+			$q = $p - $q;
+		}
+		return $p;
+	}
+
 	/**
 	 * 对于非负整数n,计算2的n次幂
 	 * @param  int $n
@@ -140,9 +159,10 @@ class C_One
 
 $c_one = new C_One;
 // $sum   = $c_one->sumI([1, 2, 3], 3);
-// $sort_nums = $c_one->bubbleSort([5, 1, 7, 2], 4);
+$sort_nums = $c_one->bubbleSort([11, 23, 19, 7, 17, 5, 3, 13, 2, 29], 10);
 // $total_one = $c_one->countOnes(15);
 // $bin = $c_one->decToBin(0);
 // $power = $c_one->power2BF_I(0);
-$recursion_sum = $c_one->recursionSumI([1,2,3,6], 4);
-var_dump($sum);
+// $recursion_sum = $c_one->recursionSumI([1,2,3,6], 4);
+// $fib_num = $c_one->fib(50);
+var_dump($sort_nums);
