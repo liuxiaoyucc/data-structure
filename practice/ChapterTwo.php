@@ -3,6 +3,7 @@
  * 第二章 向量
  * 所谓的向量,实质上是高级语言中对数组的一个推广和泛化
  * 秩rank相当于数组下标
+ * 在PHP中, 可以用数值数组来表示向量, 数值数组, 即以数字（从0 开始）作为数组下标
  *                   .-~~~~~~~~~-._       _.-~~~~~~~~~-.
               __.'              ~.   .~              `.__
             .'//                  \./                  \\`.
@@ -16,36 +17,23 @@
  */
 namespace Practice;
 
-require '../vendor/autoload.php';
-require '../helper/TimeKeeper.php';
-
-use TimeKeeper\TimeKeeper;
-use Monolog\Logger;
-use Monolog\Handler\StreamHandler;
 
 class C_Two
 {
 
-	public $log;
-	public $timeKeeper;
-
-
 	/**
 	 * 构造函数
 	 */
-	public function __construct() 
+	function __construct() 
 	{
-		$this->timeKeeper = new TimeKeeper();
-		$this->log = new Logger('C_ONE');
-		$log_file = '../logs/c_two/log_' . date('Y') . '_' . date('m'). '_' . date('d') . '.log';
-		$this->log->pushHandler(new StreamHandler($log_file, Logger::DEBUG));
+
 	}
 
 	
 	/**
 	 * 析构函数
 	 */
-	public function __destruct() {}
+	function __destruct() {}
 
 	/**
 	 * 二分查找A
@@ -54,7 +42,7 @@ class C_Two
 	 * @param  INT $e           需查找的元素
 	 * @return INT              e所在的rank
 	 */
-	public function binSearch_A($sort_vector, $e)
+	function binSearch_A($sort_vector, $e)
 	{
 		$lo = 0; // left 
 		$hi = count($sort_vector); // right
@@ -77,7 +65,7 @@ class C_Two
 	 * 二分查找B
 	 * 每次循环判断一次, 命中后不能提前退出
 	 */
-	public function binSearch_B($sort_vector, $e)
+	function binSearch_B($sort_vector, $e)
 	{
 		$lo = 0; // left 
 		$hi = count($sort_vector); // right
@@ -97,7 +85,7 @@ class C_Two
 	 * @param  [type] $e           [description]
 	 * @return [type]              [description]
 	 */
-	public function binSearch_C($sort_vector, $e)
+	function binSearch_C($sort_vector, $e)
 	{
 		$lo = 0; // left 
 		$hi = count($sort_vector); // right
@@ -117,7 +105,7 @@ class C_Two
 	 * @param ARRAY $array 带排序的数组
 	 * @return ARRAY 排序后的结果
 	 */
-	public function mergeSort($array)
+	function mergeSort($array)
 	{
 		$length = count($array);
 
@@ -146,7 +134,7 @@ class C_Two
 	/**
 	 * 合并两个有序数组并排序
 	 */
-	public function merge($left, $right)
+	function merge($left, $right)
 	{
 		$result = [];
 
@@ -161,31 +149,6 @@ class C_Two
 		return $merge;
 	}
 
-	/**
-	 * TODO
-	 * 选择排序
-	 */
-	public function selectionSort($array)
-	{
-		
-	}
+	
 
 }
-
-
-
-$c_two = new C_Two;
-
-$sort_array = range(1, 100); // 生成指定范围内有序数组
-shuffle($sort_array); //洗牌
-
-$c_two->log->debug('before_sort: ' , $sort_array);
-
-$c_two->log->debug('start: ' . $c_two->timeKeeper->start());
-$result = $c_two->mergeSort($sort_array); // 开始排序
-$c_two->log->debug('用时: ' . $c_two->timeKeeper->consumeTime() . 'ms');
-
-$c_two->log->debug('after_sort: ' , $result);
-
-
-

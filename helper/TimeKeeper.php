@@ -42,7 +42,10 @@ class TimeKeeper
 	 * 总用时
 	 */
 	public function consumeTime()
-	{	
+	{
+		if (!$this->startTime) {
+			return 0;
+		}
 		$this->endTime = $this->endTime ? $this->endTime : microtime(1);
 		return $this->consume = bcsub($this->endTime, $this->startTime, 10) * 1000;
 	}
