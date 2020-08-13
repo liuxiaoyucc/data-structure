@@ -25,14 +25,13 @@ $timeKeeper = new TimeKeeper;
 $cThree = new C_Three;
 
 
-$sort_array = range(1, 5); // 生成指定范围内有序数组
+$sort_array = range(1, 1000); // 生成指定范围内有序数组
 shuffle($sort_array); //洗牌
 
 $log->debug('排序前: ', $sort_array);
 
 $timeKeeper->start();
-$result = $cThree->insertionSort($sort_array);
-// $cThree->insertSort($sort_array);
+$result = $cThree->selectionSort($sort_array);
 
 $log->debug('用时: ' . $timeKeeper->consumeTime() . 'ms');
 

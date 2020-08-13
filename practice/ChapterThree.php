@@ -80,9 +80,35 @@ class C_Three
 	/**
 	 * TODO
 	 * 选择排序
+	 * 5 2 (7) 4 6 3 1
+	 * 5 2 4 (6) 3 1 	      |     7
+	 * (5) 2 4 3 1			  |		6 7
+	 * 2 (4) 3 1			  |		5 6 7 
+	 * ........
+	 *
 	 */
 	function selectionSort($array)
 	{
 		
+		$sortArray = [];
+		while (count($array) > 0) {
+			$maxIndex = $this->selectMaxIndex($array);
+			array_unshift($sortArray, $array[$maxIndex]);
+			unset($array[$maxIndex]);
+		}
+		return $sortArray;
 	}
+
+	private function selectMaxIndex($array)
+	{
+		$max_index = 0;
+		foreach ($array as $key => $number) {
+			if ($number > $array[$max_index]) {
+				$max_index = $key;
+			}
+		}
+
+		return $max_index;
+	}
+
 }
