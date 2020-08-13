@@ -24,7 +24,7 @@ class C_Two
 	/**
 	 * 构造函数
 	 */
-	function __construct() 
+	public function __construct() 
 	{
 
 	}
@@ -107,6 +107,7 @@ class C_Two
 	 */
 	function mergeSort($array)
 	{
+		
 		$length = count($array);
 
 		if ($length <= 1) { // 递归结束, 当array只有一个元素时, 结束分割
@@ -114,7 +115,6 @@ class C_Two
 		}
 
 		$mi = intval($length / 2); // 中心为rank
-
 		// 将数组分成两部分, mi左边的给left, 右边的给right, 递归继续分割
 		$left = array_slice($array, 0, $mi);
 		$right = array_slice($array, $mi);

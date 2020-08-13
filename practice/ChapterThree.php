@@ -43,10 +43,7 @@ class C_Three
 		for ($i = 1; $i < $length; $i++) {
 			$first_number = $array[$i];
 
-			// $this->log->debug('当前待插入元素: ' . $first_number);
-
 			for ($j = $i - 1; $j >= 0; $j--) {
-				// $this->log->debug('比较元素: ' . $array[$j]);
 				if ($first_number < $array[$j]) {
 					$array[$j + 1] = $array[$j];
 					$array[$j] = $first_number;
@@ -54,10 +51,8 @@ class C_Three
 					break;
 				}
 			}
-			// $this->log->debug('本次排序结果: ' , $array);
 		}
 
-		// $this->log->debug('排序完成: ' , $array);
 		return $array;
 	}
 
@@ -74,6 +69,7 @@ class C_Three
 			}
 			$arr[$j + 1] = $key;
 		}
+		return $arr;
 	}
 
 
