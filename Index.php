@@ -6,15 +6,19 @@ require 'helper/TimeKeeper.php';
 require 'practice/ChapterOne.php';
 require 'practice/ChapterTwo.php';
 require 'practice/ChapterThree.php';
+require 'practice/ChapterFour.php';
+
+
 
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
 
-use TimeKeeper\TimeKeeper;
-
+use Helper\TimeKeeper;
 use Practice\C_One;
 use Practice\C_Two;
 use Practice\C_Three;
+use Practice\C_Four;
+
 
 $log = new Logger('DS');
 $log_file = 'logs/log_' . date('Y') . '_' . date('m') . '_' . date('d') . '.log';
@@ -24,22 +28,28 @@ $timeKeeper = new TimeKeeper;
 
 $cThree = new C_Three;
 $cTwo = new C_Two;
+$cFour = new C_Four;
+
 
 set_time_limit(0);
 
-$sort_array = range(1, 50000); // 生成指定范围内有序数组
+$sort_array = range(1, 5); // 生成指定范围内有序数组
 shuffle($sort_array); //洗牌
 
 // $log->debug('排序前: ', $sort_array);
 
 $timeKeeper->start();
-$result = $cThree->selectionSort($sort_array);
+
+// $result = $cFour->convert_recursion(1024, 16);
+$result = $cFour->convert_iteration(754156, 2);
+
+// $result = $cThree->selectionSort($sort_array);
 // $result = $cTwo->mergeSort($sort_array);
 // $result = $cThree->insertSort($sort_array);
 
 $log->debug('用时: ' . $timeKeeper->consumeTime() . 'ms');
 
-// $log->debug('排序后: ', $result);
+$log->debug('处理后: ', $result);
 
 
 echo "hello world";

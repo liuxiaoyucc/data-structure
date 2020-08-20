@@ -1,6 +1,6 @@
 <?php
 
-namespace TimeKeeper;
+namespace Helper;
 
 /**
  * 计时器
