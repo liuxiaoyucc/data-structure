@@ -41,17 +41,16 @@ shuffle($sort_array); //洗牌
 $timeKeeper->start();
 
 // $result = $cFour->convert_recursion(1024, 16);
-$result = $cFour->convert_iteration(754156, 2);
+// $result = $cFour->convert_iteration(754156, 2);
+$result = $cFour->stack_permutation_process();
 
 // $result = $cThree->selectionSort($sort_array);
 // $result = $cTwo->mergeSort($sort_array);
 // $result = $cThree->insertSort($sort_array);
 
-$log->debug('用时: ' . $timeKeeper->consumeTime() . 'ms');
+// $log->debug('用时: ' . $timeKeeper->consumeTime() . 'ms');
 
-$log->debug('处理后: ', $result);
+// $log->debug('处理后: ', $result);
 
 
 echo "hello world";
-
-$log->debug('hello world');

@@ -9,10 +9,10 @@ class Stack
 	private $cursor; //指针位置
 	private $stack; //栈
 
-	public function __construct()
+	public function __construct(...$stack)
 	{
-		$this->cursor = -1;
-		$this->stack = [];
+		$this->cursor = count($stack) - 1;
+		$this->stack = $stack;
 	}
 
 	// 当前栈规模
@@ -31,6 +31,9 @@ class Stack
 	// 入栈
 	public function push($item)
 	{
+		if (!$item) {
+			return;
+		}
 		$this->cursor ++;
 		$this->stack[$this->cursor] = $item;
 		return;
@@ -42,7 +45,7 @@ class Stack
 		if (!$this->empty()) {
 			$this->cursor --;
 		}
-		return;
+		return $this->stack[$this->cursor + 1];
 	}
 
 	// 返回栈顶元素
@@ -55,7 +58,7 @@ class Stack
 
 	public function show()
 	{
-		return $this->stack;
+		return array_slice($this->stack, 0, $this->cursor + 1);
 	}
 
 }
