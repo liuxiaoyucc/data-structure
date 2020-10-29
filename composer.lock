@@ -4,8 +4,41 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bc246126d81e933dbd774c78d8cc6767",
+    "content-hash": "df6254abc5a3f3d5939877147ac7cb1e",
     "packages": [
+        {
+            "name": "liuxiaoyucc/timekeeper",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/liuxiaoyucc/timekeeper.git",
+                "reference": "f35d5254cebfe8bf57079eb675c67078f29e27e3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/liuxiaoyucc/timekeeper/zipball/f35d5254cebfe8bf57079eb675c67078f29e27e3",
+                "reference": "f35d5254cebfe8bf57079eb675c67078f29e27e3",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "liuxiaoyucc\\timekeeper\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "xyliu",
+                    "email": "2199842341@qq.com"
+                }
+            ],
+            "description": "php timekeeper",
+            "time": "2020-10-21T01:51:53+00:00"
+        },
         {
             "name": "monolog/monolog",
             "version": "2.1.0",

@@ -1,8 +1,6 @@
 <?php
 
 require 'vendor/autoload.php';
-require 'helper/TimeKeeper.php';
-
 require 'practice/ChapterOne.php';
 require 'practice/ChapterTwo.php';
 require 'practice/ChapterThree.php';
@@ -12,8 +10,7 @@ require 'practice/ChapterFour.php';
 
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
-
-use Helper\TimeKeeper;
+use liuxiaoyucc\timekeeper\TimeKeeper;
 use Practice\C_One;
 use Practice\C_Two;
 use Practice\C_Three;
@@ -39,15 +36,15 @@ shuffle($sort_array); //洗牌
 // $log->debug('排序前: ', $sort_array);
 
 $timeKeeper->start();
-
+sleep(1);
 // $result = $cFour->convert_recursion(1024, 16);
 // $result = $cFour->convert_iteration(754156, 2);
-$result = $cFour->stack_permutation_process();
+// $result = $cFour->stack_permutation_process();
 
 // $result = $cThree->selectionSort($sort_array);
 // $result = $cTwo->mergeSort($sort_array);
 // $result = $cThree->insertSort($sort_array);
-
+echo $timeKeeper->consumeTime();
 // $log->debug('用时: ' . $timeKeeper->consumeTime() . 'ms');
 
 // $log->debug('处理后: ', $result);
